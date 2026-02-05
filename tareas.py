@@ -1,6 +1,10 @@
 import json
 import os
 
+"""Gestor de Tareas - Task Master Pro
+Este script permite a los usuarios gestionar sus tareas diarias
+a través de una interfaz de línea de comandos. Las tareas se almacenan
+en un archivo JSON para persistencia."""
 ARCHIVO_TAREAS = "tareas.json"
 
 def cargar_tareas():
