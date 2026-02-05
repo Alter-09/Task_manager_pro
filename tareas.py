@@ -52,6 +52,20 @@ def agregar_tarea(tareas):
     guardar_tareas(tareas)
     print("Tarea agregada correctamente.")
 
+def completar_tarea(tareas):
+    mostrar_tareas(tareas)
+    try:
+        tarea_id = int(input("\nIngresa el ID de la tarea completada: "))
+        for tarea in tareas:
+            if tarea["id"] == tarea_id:
+                tarea["completada"] = True
+                guardar_tareas(tareas)
+                print("Tarea marcada como completada.")
+                return
+        print("ID no encontrado.")
+    except ValueError:
+        print("Ingresa un número válido.")
+
 def menu():
     tareas = cargar_tareas()
 
