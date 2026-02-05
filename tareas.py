@@ -3,7 +3,6 @@ import os
 
 ARCHIVO_TAREAS = "tareas.json"
 
-
 def cargar_tareas():
     if os.path.exists(ARCHIVO_TAREAS):
         with open(ARCHIVO_TAREAS, "r", encoding="utf-8") as archivo:
@@ -42,6 +41,16 @@ def eliminar_tarea(tareas):
     except ValueError:
         print("Ingresa un número válido.")
 
+def agregar_tarea(tareas):
+    titulo = input("\nEscribe el título de la tarea: ")
+    nueva_tarea = {
+        "id": len(tareas) + 1,
+        "titulo": titulo,
+        "completada": False
+    }
+    tareas.append(nueva_tarea)
+    guardar_tareas(tareas)
+    print("Tarea agregada correctamente.")
 
 def menu():
     tareas = cargar_tareas()
